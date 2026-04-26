@@ -56,17 +56,24 @@
                                 <img src="{{ item.image }}" alt="{{ item.name }}" class="order-item-image">
                                 <div>
                                     <h6>{{ item.name }}</h6>
-                                    <small>{{ item.quantity|default('1') }} x AED {{ item.price }}</small>
+                                    <small>{{ item.quantity|default('1') }} x Dhs. {{ item.price }}</small>
                                 </div>
                             </div>
-                            <span class="order-item-price">AED {{ item.price }}</span>
+                            <span class="order-item-price">Dhs. {{ item.price }}</span>
                         </div>
                         {% endfor %}
+                        <div class="order-item bg-light text-success">
+                            <div>
+                                <h6 class="my-0">Promo code</h6>
+                                <small>EXAMPLECODE</small>
+                            </div>
+                            <span class="text-success">−Dhs. 0</span>
+                        </div>
                     </div>
                     <hr>
                     <div class="summary-item summary-total">
-                        <span>Total</span>
-                        <span>AED {{ total }}</span>
+                        <span>Total (Dhs)</span>
+                        <strong>Dhs. {{ total }}</strong>
                     </div>
                     {% else %}
                     <p class="text-muted">No items in cart</p>

@@ -40,7 +40,7 @@
                                     <h5 class="cart-product-name">{{ item.name }}</h5>
                                 </td>
                                 <td>
-                                    <span class="cart-product-price">AED {{ item.price }}</span>
+                                    <span class="cart-product-price">Dhs. {{ item.price }}</span>
                                 </td>
                                 <td>
                                     <a href="{{ url_for('remove_from_cart', product_id=item.id) }}" class="btn btn-remove">
@@ -54,20 +54,20 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="cart-summary">
-                    <h4 class="summary-title">Order Summary</h4>
-                    <div class="summary-item">
-                        <span>Subtotal ({{ cart_items|length }} items)</span>
-                        <span>AED {{ total }}</span>
+                <div class="cart-summary p-4 rounded-4 shadow-sm bg-white">
+                    <h4 class="mb-4">Order Summary</h4>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Subtotal</span>
+                        <span>Dhs. {{ total }}</span>
                     </div>
-                    <div class="summary-item">
+                    <div class="d-flex justify-content-between mb-4">
                         <span>Shipping</span>
-                        <span>Free</span>
+                        <span class="text-success">Free</span>
                     </div>
                     <hr>
-                    <div class="summary-item summary-total">
-                        <span>Total</span>
-                        <span>AED {{ total }}</span>
+                    <div class="d-flex justify-content-between mb-4">
+                        <span class="h5">Total</span>
+                        <span class="h5">Dhs. {{ total }}</span>
                     </div>
                     <a href="{{ url_for('checkout') }}" class="btn btn-checkout w-100">Proceed to Checkout</a>
                     <a href="{{ url_for('gallery') }}" class="btn btn-continue w-100 mt-2">Continue Shopping</a>
