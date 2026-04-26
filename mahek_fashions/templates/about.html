@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block title %}About - Mahek Fashion's{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>About Us</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center">
+                <li class="breadcrumb-item"><a href="{{ url_for('home') }}">Home</a></li>
+                <li class="breadcrumb-item active">About</li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+<section class="about-story py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <img src="{{ url_for('static', filename='images/about.jpg') }}" alt="Our Elegant Collection" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-lg-6">
+                <h2 class="section-title">Our Story</h2>
+                <p class="section-text">
+                    Mahek Fashion's was born from a passion for preserving and celebrating the rich heritage
+                    of traditional Indian fashion. Established in the heart of Dubai's iconic Meena Bazaar,
+                    our showroom has become a trusted destination for women seeking elegant ethnic wear.
+                </p>
+                <p class="section-text">
+                    Every garment in our collection tells a story of craftsmanship, tradition, and modern
+                    elegance. From intricately embroidered Kurtis to luxurious silk Sarees and grand
+                    bridal wear, we offer pieces that honor our cultural roots while embracing contemporary
+                    style sensibilities.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about-values py-5 bg-light">
+    <div class="container">
+        <h2 class="section-title text-center mb-5">Our Values</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="value-card text-center">
+                    <div class="value-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3>Quality</h3>
+                    <p>We source only the finest fabrics and work with skilled artisans to ensure every piece meets our exacting standards.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="value-card text-center">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Tradition</h3>
+                    <p>We celebrate the timeless beauty of ethnic fashion and take pride in keeping our heritage alive through our collections.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="value-card text-center">
+                    <div class="value-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Elegance</h3>
+                    <p>Every outfit we offer is selected to help you look and feel your absolute best, no matter the occasion.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about-location py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
+                <img src="{{ url_for('static', filename='images/hero.jpg') }}" alt="Dubai Showroom" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <h2 class="section-title">Visit Our Showroom</h2>
+                <p class="section-text">
+                    Located in the historic Meena Bazaar of Bur Dubai, our showroom welcomes you
+                    to explore our extensive collection in person. Experience the texture of our fabrics,
+                    admire the intricate detailing, and find your perfect outfit with the help of our
+                    friendly staff.
+                </p>
+                <div class="contact-info mt-4">
+                    <p><i class="fas fa-map-marker-alt me-2"></i><strong>Address:</strong><br>
+                    Meena Bazaar, Bur Dubai<br>
+                    Dubai, United Arab Emirates</p>
+                    <p><i class="fas fa-phone me-2"></i><strong>Phone:</strong> +971 50 123 4567</p>
+                    <p><i class="fas fa-envelope me-2"></i><strong>Email:</strong> info@mahekfashions.com</p>
+                    <p><i class="fas fa-clock me-2"></i><strong>Working Hours:</strong><br>
+                    Saturday - Thursday: 9:00 AM - 10:00 PM<br>
+                    Friday: 2:00 PM - 10:00 PM</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

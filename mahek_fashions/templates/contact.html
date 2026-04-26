@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact - Mahek Fashion's{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>Contact Us</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center">
+                <li class="breadcrumb-item"><a href="{{ url_for('home') }}">Home</a></li>
+                <li class="breadcrumb-item active">Contact</li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+<section class="contact-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <div class="contact-info-container">
+                    <h2 class="section-title">Get in Touch</h2>
+                    <p class="contact-intro">
+                        We'd love to hear from you. Whether you have a question about our collection,
+                        sizing, or anything else, our team is ready to assist you.
+                    </p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h5>Visit Our Showroom</h5>
+                                <p>Meena Bazaar, Bur Dubai<br>Dubai, United Arab Emirates</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h5>Call Us</h5>
+                                <p>+971 50 123 4567</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h5>Email Us</h5>
+                                <p>info@mahekfashions.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h5>Working Hours</h5>
+                                <p>Saturday - Thursday: 9:00 AM - 10:00 PM<br>Friday: 2:00 PM - 10:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="map-container">
+                    <h2 class="section-title mb-4">Find Us</h2>
+                    <div class="map-wrapper">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.3297356858674!2d55.29670427538226!3d25.26354957765345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43348c5c6c41%3A0x1f6e6e07b3c0e0c4!2sMeena%20Bazaar!5e0!3m2!1sen!2sae!4v1703123456789!5m2!1sen!2sae"
+                            width="100%" 
+                            height="400" 
+                            style="border:0; border-radius: 10px;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="social-section py-4 bg-light text-center">
+    <div class="container">
+        <h3 class="mb-3">Connect With Us</h3>
+        <div class="social-links">
+            <a href="#" class="btn btn-social"><i class="fab fa-facebook-f"></i> Facebook</a>
+            <a href="#" class="btn btn-social"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="#" class="btn btn-social"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a href="#" class="btn btn-social"><i class="fab fa-twitter"></i> Twitter</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

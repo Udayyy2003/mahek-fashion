@@ -1,0 +1,187 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Mahek Fashion's{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+        <h1 class="hero-title">Mahek Fashion's</h1>
+        <p class="hero-subtitle">Elegant Women's Fashion from the Heart of Dubai</p>
+        <a href="{{ url_for('gallery') }}" class="btn btn-hero">Explore Collection</a>
+    </div>
+</section>
+
+<section class="intro-section py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <img src="{{ url_for('static', filename='images/hero.jpg') }}" alt="Elegant Saree Collection" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-lg-6">
+                <h2 class="section-title">Welcome to Mahek Fashion's</h2>
+                <p class="section-text">
+                    Discover the essence of traditional elegance with a modern twist at Mahek Fashion's.
+                    Based in the vibrant heart of Meena Bazaar, Bur Dubai, we bring you an exquisite collection
+                    of Kurtis, Sarees, and Traditional Wear that celebrates the rich heritage of Indian fashion.
+                </p>
+                <p class="section-text">
+                    Every piece in our collection is carefully curated to ensure you find the perfect outfit
+                    for every occasion - from casual gatherings to grand celebrations.
+                </p>
+                <a href="{{ url_for('about') }}" class="btn btn-outline-primary">Learn More About Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="categories-section py-5 bg-light">
+    <div class="container">
+        <h2 class="section-title text-center mb-5">Our Collections</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="category-card">
+                    <img src="{{ url_for('static', filename='images/kurti_1.jpg') }}" alt="Kurtis" class="img-fluid">
+                    <div class="category-overlay">
+                        <h3>Pakistani Kurtis</h3>
+                        <p>Exquisite ethnic designs</p>
+                        <a href="{{ url_for('gallery') }}" class="btn btn-sm btn-light">View Collection</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="category-card">
+                    <img src="{{ url_for('static', filename='images/saree_1.jpg') }}" alt="Sarees" class="img-fluid">
+                    <div class="category-overlay">
+                        <h3>Sarees</h3>
+                        <p>Timeless elegance</p>
+                        <a href="{{ url_for('gallery') }}" class="btn btn-sm btn-light">View Collection</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="category-card">
+                    <img src="{{ url_for('static', filename='images/trad_1.jpg') }}" alt="Traditional Wear" class="img-fluid">
+                    <div class="category-overlay">
+                        <h3>Traditional Wear</h3>
+                        <p>Heritage collection</p>
+                        <a href="{{ url_for('gallery') }}" class="btn btn-sm btn-light">View Collection</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="testimonials-section py-5">
+    <div class="container">
+        <h2 class="section-title text-center mb-5">What Our Customers Say</h2>
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Absolutely stunning collection! The quality of the fabrics and the intricate embroidery on the sarees is remarkable. Found my dream wedding saree here!"</p>
+                    <div class="testimonial-author">
+                        <h5>Priya Sharma</h5>
+                        <p>Dubai, UAE</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"The Kurti collection here is amazing. Perfect for both casual and festive occasions. The staff was very helpful in choosing the right outfit for me."</p>
+                    <div class="testimonial-author">
+                        <h5>Fatima Al-Rashid</h5>
+                        <p>Abu Dhabi, UAE</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="testimonial-text">"I visited Meena Bazaar specifically to find traditional wear and Mahek Fashion's exceeded my expectations. Beautiful Anarkali suits!"</p>
+                    <div class="testimonial-author">
+                        <h5>Meera Patel</h5>
+                        <p>Sharjah, UAE</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Best fashion showroom in Bur Dubai! The Lehenga I bought for my sister's wedding was absolutely gorgeous. Highly recommended!"</p>
+                    <div class="testimonial-author">
+                        <h5>Aisha Khan</h5>
+                        <p>Dubai, UAE</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Wonderful shopping experience! The variety of designs and the reasonable prices make this my go-to place for traditional wear."</p>
+                    <div class="testimonial-author">
+                        <h5>Sana Mohammad</h5>
+                        <p>Ajman, UAE</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Mahek Fashion's has the most elegant Pakistani Kurtis in Dubai. The fabric is so breathable and the embroidery is top-notch. Highly impressed!"</p>
+                    <div class="testimonial-author">
+                        <h5>Zainab Ahmed</h5>
+                        <p>Fujairah, UAE</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section py-5 text-center">
+    <div class="container">
+        <h2 class="cta-title">Ready to Explore Our Collection?</h2>
+        <p class="cta-text">Visit our showroom in Meena Bazaar or browse our online gallery</p>
+        <a href="{{ url_for('gallery') }}" class="btn btn-cta">Shop Now</a>
+    </div>
+</section>
+{% endblock %}

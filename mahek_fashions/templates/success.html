@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Order Success - Mahek Fashion's{% endblock %}
+
+{% block content %}
+<section class="success-section py-5">
+    <div class="container">
+        <div class="success-container text-center">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h1 class="success-title">Order Placed Successfully!</h1>
+            <p class="success-message">
+                Thank you for your purchase. Your order has been confirmed and will be processed shortly.
+                We will contact you to confirm the delivery details.
+            </p>
+            <div class="success-details">
+                <p><i class="fas fa-envelope me-2"></i> A confirmation email has been sent to your provided email address.</p>
+                <p><i class="fas fa-truck me-2"></i> Expected delivery within 3-5 business days.</p>
+            </div>
+            <div class="success-actions mt-4">
+                <a href="{{ url_for('gallery') }}" class="btn btn-continue-shopping">Continue Shopping</a>
+                <a href="{{ url_for('home') }}" class="btn btn-back-home">Back to Home</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

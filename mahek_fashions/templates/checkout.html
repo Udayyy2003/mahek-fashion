@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %}Checkout - Mahek Fashion's{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>Checkout</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center">
+                <li class="breadcrumb-item"><a href="{{ url_for('home') }}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ url_for('cart') }}">Cart</a></li>
+                <li class="breadcrumb-item active">Checkout</li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+<section class="checkout-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mb-4">
+                <div class="checkout-form-container">
+                    <h4 class="form-title">Delivery Information</h4>
+                    <form method="POST" action="{{ url_for('checkout') }}" class="checkout-form">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="phone" name="phone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Delivery Address</label>
+                            <textarea class="form-control" id="address" name="address" rows="4" required></textarea>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="terms" required>
+                            <label class="form-check-label" for="terms">
+                                I agree to the Terms and Conditions
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-checkout-submit w-100">Place Order</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="order-summary">
+                    <h4 class="summary-title">Your Order</h4>
+                    {% if cart_items %}
+                    <div class="order-items">
+                        {% for item in cart_items %}
+                        <div class="order-item">
+                            <div class="order-item-info">
+                                <img src="{{ item.image }}" alt="{{ item.name }}" class="order-item-image">
+                                <div>
+                                    <h6>{{ item.name }}</h6>
+                                    <small>{{ item.quantity|default('1') }} x AED {{ item.price }}</small>
+                                </div>
+                            </div>
+                            <span class="order-item-price">AED {{ item.price }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <hr>
+                    <div class="summary-item summary-total">
+                        <span>Total</span>
+                        <span>AED {{ total }}</span>
+                    </div>
+                    {% else %}
+                    <p class="text-muted">No items in cart</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
