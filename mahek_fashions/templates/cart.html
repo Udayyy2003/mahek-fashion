@@ -34,9 +34,10 @@
                             {% for item in cart_items %}
                             <tr>
                                 <td>
-                                    <img src="{{ item.image }}" alt="{{ item.name }}" class="cart-product-image">
+                                    <img src="{{ url_for('static', filename=item.image) }}" alt="{{ item.name }}" class="cart-product-image">
                                 </td>
                                 <td>
+                                    <span class="product-category mb-1" style="font-size: 0.7rem;">{{ item.category }}</span>
                                     <h5 class="cart-product-name">{{ item.name }}</h5>
                                 </td>
                                 <td>
@@ -58,7 +59,7 @@
                     <h4 class="mb-4">Order Summary</h4>
                     <div class="d-flex justify-content-between mb-2">
                         <span>Subtotal</span>
-                        <span>Dhs. {{ total }}</span>
+                        <span>Dhs. {{ total_price }}</span>
                     </div>
                     <div class="d-flex justify-content-between mb-4">
                         <span>Shipping</span>
@@ -67,7 +68,7 @@
                     <hr>
                     <div class="d-flex justify-content-between mb-4">
                         <span class="h5">Total</span>
-                        <span class="h5">Dhs. {{ total }}</span>
+                        <span class="h5">Dhs. {{ total_price }}</span>
                     </div>
                     <a href="{{ url_for('checkout') }}" class="btn btn-checkout w-100">Proceed to Checkout</a>
                     <a href="{{ url_for('gallery') }}" class="btn btn-continue w-100 mt-2">Continue Shopping</a>

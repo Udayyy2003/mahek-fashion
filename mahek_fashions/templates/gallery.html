@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% from 'macros.html' import product_card %}
 
 {% block title %}Gallery - Mahek Fashion's{% endblock %}
 
@@ -19,104 +20,48 @@
     <div class="container">
         <ul class="nav nav-pills mb-4 justify-content-center" id="categoryTabs" role="tablist">
             <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="all-tab" data-bs-toggle="pill" data-bs-target="#all" type="button">All</button>
+                <button class="nav-link {% if not active_category %}active{% endif %}" id="all-tab" data-bs-toggle="pill" data-bs-target="#all" type="button">All</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="kurtis-tab" data-bs-toggle="pill" data-bs-target="#kurtis" type="button">Kurtis</button>
+                <button class="nav-link {% if active_category == 'Kurtis' %}active{% endif %}" id="kurtis-tab" data-bs-toggle="pill" data-bs-target="#kurtis" type="button">Kurtis</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="sarees-tab" data-bs-toggle="pill" data-bs-target="#sarees" type="button">Sarees</button>
+                <button class="nav-link {% if active_category == 'Sarees' %}active{% endif %}" id="sarees-tab" data-bs-toggle="pill" data-bs-target="#sarees" type="button">Sarees</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="traditional-tab" data-bs-toggle="pill" data-bs-target="#traditional" type="button">Traditional Wear</button>
+                <button class="nav-link {% if active_category == 'Traditional Wear' %}active{% endif %}" id="traditional-tab" data-bs-toggle="pill" data-bs-target="#traditional" type="button">Traditional Wear</button>
             </li>
         </ul>
 
         <div class="tab-content" id="categoryTabsContent">
-            <div class="tab-pane fade show active" id="all" role="tabpanel">
+            <div class="tab-pane fade {% if not active_category %}show active{% endif %}" id="all" role="tabpanel">
                 <div class="row g-4">
                     {% for product in products %}
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="{{ url_for('static', filename=product.image) }}" alt="{{ product.name }}" class="img-fluid">
-                                <div class="product-overlay">
-                                    <a href="{{ url_for('add_to_cart', product_id=product.id) }}" class="btn btn-add-cart">Add to Cart</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <span class="product-category">{{ product.category }}</span>
-                                <h4 class="product-name">{{ product.name }}</h4>
-                                <p class="product-price">Dhs. {{ product.price }}</p>
-                            </div>
-                        </div>
-                    </div>
+                        {{ product_card(product) }}
                     {% endfor %}
                 </div>
             </div>
 
-            <div class="tab-pane fade" id="kurtis" role="tabpanel">
+            <div class="tab-pane fade {% if active_category == 'Kurtis' %}show active{% endif %}" id="kurtis" role="tabpanel">
                 <div class="row g-4">
                     {% for product in products if product.category == 'Kurtis' %}
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="{{ url_for('static', filename=product.image) }}" alt="{{ product.name }}" class="img-fluid">
-                                <div class="product-overlay">
-                                    <a href="{{ url_for('add_to_cart', product_id=product.id) }}" class="btn btn-add-cart">Add to Cart</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <span class="product-category">{{ product.category }}</span>
-                                <h4 class="product-name">{{ product.name }}</h4>
-                                <p class="product-price">Dhs. {{ product.price }}</p>
-                            </div>
-                        </div>
-                    </div>
+                        {{ product_card(product) }}
                     {% endfor %}
                 </div>
             </div>
 
-            <div class="tab-pane fade" id="sarees" role="tabpanel">
+            <div class="tab-pane fade {% if active_category == 'Sarees' %}show active{% endif %}" id="sarees" role="tabpanel">
                 <div class="row g-4">
                     {% for product in products if product.category == 'Sarees' %}
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="{{ url_for('static', filename=product.image) }}" alt="{{ product.name }}" class="img-fluid">
-                                <div class="product-overlay">
-                                    <a href="{{ url_for('add_to_cart', product_id=product.id) }}" class="btn btn-add-cart">Add to Cart</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <span class="product-category">{{ product.category }}</span>
-                                <h4 class="product-name">{{ product.name }}</h4>
-                                <p class="product-price">Dhs. {{ product.price }}</p>
-                            </div>
-                        </div>
-                    </div>
+                        {{ product_card(product) }}
                     {% endfor %}
                 </div>
             </div>
 
-            <div class="tab-pane fade" id="traditional" role="tabpanel">
+            <div class="tab-pane fade {% if active_category == 'Traditional Wear' %}show active{% endif %}" id="traditional" role="tabpanel" aria-labelledby="traditional-tab">
                 <div class="row g-4">
                     {% for product in products if product.category == 'Traditional Wear' %}
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="{{ url_for('static', filename=product.image) }}" alt="{{ product.name }}" class="img-fluid">
-                                <div class="product-overlay">
-                                    <a href="{{ url_for('add_to_cart', product_id=product.id) }}" class="btn btn-add-cart">Add to Cart</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <span class="product-category">{{ product.category }}</span>
-                                <h4 class="product-name">{{ product.name }}</h4>
-                                <p class="product-price">Dhs. {{ product.price }}</p>
-                            </div>
-                        </div>
-                    </div>
+                        {{ product_card(product) }}
                     {% endfor %}
                 </div>
             </div>

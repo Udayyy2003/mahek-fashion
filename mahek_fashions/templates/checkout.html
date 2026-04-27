@@ -52,8 +52,8 @@
                     <div class="order-items">
                         {% for item in cart_items %}
                         <div class="order-item">
-                            <div class="order-item-info">
-                                <img src="{{ item.image }}" alt="{{ item.name }}" class="order-item-image">
+                                <div class="order-item-info">
+                                <img src="{{ url_for('static', filename=item.image) }}" alt="{{ item.name }}" class="order-item-image">
                                 <div>
                                     <h6>{{ item.name }}</h6>
                                     <small>{{ item.quantity|default('1') }} x Dhs. {{ item.price }}</small>
@@ -73,7 +73,7 @@
                     <hr>
                     <div class="summary-item summary-total">
                         <span>Total (Dhs)</span>
-                        <strong>Dhs. {{ total }}</strong>
+                        <strong>Dhs. {{ total_price }}</strong>
                     </div>
                     {% else %}
                     <p class="text-muted">No items in cart</p>

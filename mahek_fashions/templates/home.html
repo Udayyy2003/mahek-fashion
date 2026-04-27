@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% from 'macros.html' import product_card %}
 
 {% block title %}Home - Mahek Fashion's{% endblock %}
 
@@ -6,11 +7,49 @@
 <section class="hero">
     <div class="hero-overlay"></div>
     <div class="container hero-content">
-        <h1 class="hero-title">Mahek Fashion's</h1>
-        <p class="hero-subtitle">Elegant Women's Fashion from the Heart of Dubai</p>
+        <h1 class="hero-title" id="typewriter-title"></h1>
+        <p class="hero-subtitle" id="typewriter-subtitle"></p>
         <a href="{{ url_for('gallery') }}" class="btn btn-hero">Explore Collection</a>
     </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const titleText = "Mahek Fashion's";
+    const subtitleText = "Elegant Women's Fashion from the Heart of Dubai";
+    const titleElement = document.getElementById('typewriter-title');
+    const subtitleElement = document.getElementById('typewriter-subtitle');
+    
+    function typeWriter(text, element, speed, callback) {
+        let i = 0;
+        // Add cursor
+        const cursor = document.createElement('span');
+        cursor.className = 'typing-cursor';
+        element.appendChild(cursor);
+        
+        function type() {
+            if (i < text.length) {
+                // Insert character before the cursor
+                cursor.before(text.charAt(i));
+                i++;
+                setTimeout(type, speed);
+            } else if (callback) {
+                // Remove cursor from this element if we're moving to the next one
+                cursor.remove();
+                callback();
+            }
+        }
+        type();
+    }
+
+    // Start with title, then do subtitle
+    typeWriter(titleText, titleElement, 100, function() {
+        setTimeout(function() {
+            typeWriter(subtitleText, subtitleElement, 50);
+        }, 500); // Small delay between title and subtitle
+    });
+});
+</script>
 
 <section class="intro-section py-5">
     <div class="container">
@@ -41,33 +80,75 @@
         <div class="row g-4">
             <div class="col-md-4">
                 <div class="category-card">
-                    <img src="{{ url_for('static', filename='images/kurti_1.jpg') }}" alt="Kurtis" class="img-fluid">
+                    <img src="{{ url_for('static', filename='images/main page/kurti.jpeg') }}" alt="Pakistani Kurtis" class="img-fluid">
                     <div class="category-overlay">
                         <h3>Pakistani Kurtis</h3>
                         <p>Designer Ethnic Collection</p>
-                        <a href="{{ url_for('gallery') }}" class="btn btn-sm btn-light">View Collection</a>
+                        <a href="{{ url_for('gallery', category='Kurtis') }}" class="btn btn-sm btn-light">View Collection</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="category-card">
-                    <img src="{{ url_for('static', filename='images/saree_1.jpg') }}" alt="Sarees" class="img-fluid">
-                    <div class="category-overlay">
-                        <h3>Luxury Sarees</h3>
-                        <p>Pure Silk & Party Wear</p>
-                        <a href="{{ url_for('gallery') }}" class="btn btn-sm btn-light">View Collection</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="category-card">
-                    <img src="{{ url_for('static', filename='images/trad_1.jpg') }}" alt="Bridal Wear" class="img-fluid">
+                    <img src="{{ url_for('static', filename='images/main page/lahenga.jpeg') }}" alt="Bridal Lehengas" class="img-fluid">
                     <div class="category-overlay">
                         <h3>Bridal Lehengas</h3>
                         <p>Grand Wedding Collection</p>
-                        <a href="{{ url_for('gallery') }}" class="btn btn-sm btn-light">View Collection</a>
+                        <a href="{{ url_for('gallery', category='Traditional Wear') }}" class="btn btn-sm btn-light">View Collection</a>
                     </div>
                 </div>
+            </div>
+            <div class="col-md-4">
+                <div class="category-card">
+                    <img src="{{ url_for('static', filename='images/main page/saree.jpeg') }}" alt="Luxury Sarees" class="img-fluid">
+                    <div class="category-overlay">
+                        <h3>Luxury Sarees</h3>
+                        <p>Pure Silk & Party Wear</p>
+                        <a href="{{ url_for('gallery', category='Sarees') }}" class="btn btn-sm btn-light">View Collection</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="featured-products py-5">
+    <div class="container">
+        <h2 class="section-title text-center mb-5">Featured Products</h2>
+        
+        <div class="featured-category mb-5">
+            <h3 class="category-title mb-4">Latest Kurtis</h3>
+            <div class="row g-4">
+                {% for product in featured_kurtis %}
+                    {{ product_card(product) }}
+                {% endfor %}
+            </div>
+            <div class="text-center mt-4">
+                <a href="{{ url_for('gallery', category='Kurtis') }}" class="btn btn-outline-primary">View More Kurtis</a>
+            </div>
+        </div>
+
+        <div class="featured-category mb-5">
+            <h3 class="category-title mb-4">Exquisite Sarees</h3>
+            <div class="row g-4">
+                {% for product in featured_sarees %}
+                    {{ product_card(product) }}
+                {% endfor %}
+            </div>
+            <div class="text-center mt-4">
+                <a href="{{ url_for('gallery', category='Sarees') }}" class="btn btn-outline-primary">View More Sarees</a>
+            </div>
+        </div>
+
+        <div class="featured-category">
+            <h3 class="category-title mb-4">Traditional Wear</h3>
+            <div class="row g-4">
+                {% for product in featured_traditional %}
+                    {{ product_card(product) }}
+                {% endfor %}
+            </div>
+            <div class="text-center mt-4">
+                <a href="{{ url_for('gallery', category='Traditional Wear') }}" class="btn btn-outline-primary">View More Traditional Wear</a>
             </div>
         </div>
     </div>
