@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import os
-from products import products
+from mahek_fashions.products import products
 
 app = Flask(__name__)
 app.secret_key = 'mahek_fashions_secret_key_2024'
